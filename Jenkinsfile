@@ -36,7 +36,7 @@
                         // Stop any existing container and run a new one for staging
                         sh 'docker stop staging_container || true'
                         sh 'docker rm staging_container || true'
-                        sh "docker run -d --name staging_container -p 8081:80 ${DOCKER_IMAGE}"
+                        sh "docker run -d --name staging_container -p 8082:80 ${DOCKER_IMAGE}"
                     }
                 }
             }
