@@ -38,9 +38,9 @@ pipeline {
         }
 
         stage('Deploy to Production (Green)') {
-            when {  
-                branch 'main'
-            }
+            when {
+        expression { env.BRANCH_NAME == 'main' }
+    }
             steps {
                 script {
                     // Stop any existing Green container and run the new one on GREEN_PORT
