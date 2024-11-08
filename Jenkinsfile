@@ -24,8 +24,9 @@
             }
 
             stage('Deploy to Staging') {
-                when {
-                    branch 'staging'
+                expression {
+                    // Strip 'origin/' prefix and check if the branch is 'staging'
+                    return env.GIT_BRANCH.replaceAll(/^origin\//, '') == 'staging'
                 }
                 steps {
                     script {
