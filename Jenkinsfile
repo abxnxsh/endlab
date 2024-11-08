@@ -8,7 +8,9 @@
         stages {
             stage('Checkout') {
                 steps {
+                    echo "Current branch: ${env.GIT_BRANCH}"
                     checkout scm
+                    echo "Current branch: ${env.GIT_BRANCH}"
                 }
             }
 
