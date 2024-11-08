@@ -30,7 +30,7 @@ pipeline {
                     // Stop any existing container and run a new one for staging
                     sh 'docker stop staging_container || true'
                     sh 'docker rm staging_container || true'
-                    sh "docker run -d --name staging_container -p 8081:80 ${DOCKER_IMAGE}"
+                    sh "docker run -d --name staging_container -p 8082:80 ${DOCKER_IMAGE}"
                 }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
                     // Stop any existing container and run a new one for production
                     sh 'docker stop production_container || true'
                     sh 'docker rm production_container || true'
-                    sh "docker run -d --name production_container -p 8082:80 ${DOCKER_IMAGE}"
+                    sh "docker run -d --name production_container -p 8083:80 ${DOCKER_IMAGE}"
                 }
             }
         }
